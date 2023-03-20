@@ -29,9 +29,9 @@ include 'php/session.php';
   <section class="home-section">
       <div class="container_form">
 
-          <H1>Tree Inventory Report</H1>
+          <H1>SDHCP Report</H1>
           <a href="#" type="button" class="btn btn-primary">Form</a>
-          <a href="user_tbl_rep.php" type="button" class="btn btn-primary">Table</a>
+          <a href="user_sdhcp.php" type="button" class="btn btn-primary">Table</a>
         </div>
       </div>
       </section>
