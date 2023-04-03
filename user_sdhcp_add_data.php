@@ -2,36 +2,6 @@
 require 'php/config.php';
 include 'php/session.php';
 
-if(isset($_POST["submit_sdhcp"])){
-    $data_id = $_POST["data_id"];
-    $rep_id = $_POST["rep_id"];
-    $g_level = $_POST["g_level"];
-    $h_task = $_POST["h_task"];
-    $online = $_POST["online"];
-    $f2f = $_POST["f2f"]; 
-    $prescription = $_POST["prescription"];
-    $treatment = $_POST["treatment"];
-    $referal = $_POST["referal"];
-    $subtotal = $_POST["subtotal"];
-
-    
-      foreach($data_id as $key => $value){
-        $result = "INSERT INTO tb_sdhcp_data VALUES('$data_id[$key]','$rep_id[$key]','$g_level[$key]','$h_task[$key]','$online[$key]','$f2f[$key]', '$prescription[$key]',  '$treatment[$key]','$referal[$key]','$subtotal[$key]')";
-  
-        $query = mysqli_query($conn, $result);
-  
-        if($result)
-          {
-              $_SESSION['success_message'] = "Data Stored Successfully";
-              header("Location: ../user_sdhcp.php");
-          }
-          else
-          {
-              $_SESSION['danger_message'] = "Data Not Stored";
-              header("Location: ../user_sdhcp.php");
-          }
-      }
-  }
 
 ?>
 
@@ -73,7 +43,7 @@ if(isset($_POST["submit_sdhcp"])){
               ?>
 
           <H1>SDHCP Report <?= $row['rep_id']; ?> Data</H1>
-          <form action="" method="post" >
+          <form action="php/code.php" method="post" >
           <div class="container">
             <div class="row top-tab">
            

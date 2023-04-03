@@ -1,30 +1,30 @@
 <?php
 require 'config.php';
 
-$filename = 'tree_locator_reports.csv';
-$query = "SELECT * FROM tree_locate";
+if(isset($_POST['export'])){
+
+$rep_id = $_POST['rep_id'];
+$filename = 'SDHCP Report.csv';
+$query = "SELECT * FROM tb_sdhcp_data WHERE rep_id='$rep_id'";
 $result = mysqli_query($conn, $query);
 
 $array = array();
 
 $file = fopen($filename,'w');
-$array = array("ID.","School","Submitor","Location","Tree No.","Tree Name","Type","Status","Planted during the icon of forrest (y/n)","Longitude","Latitude");
+$array = array("Grade Level","Health Task","Online","Face-To-Face","Prescription","treatment","referal","Subtotal");
 fputcsv($file, $array);
 
 while ($row = mysqli_fetch_array($result)){
-    $id = $row['id'];
-    $school = $row['school'];
-    $user = $row['user'];
-    $location = $row['location'];
-    $tree_num = $row['tree_num'];
-    $tree_name = $row['tree_name'];
-    $type = $row['type'];
-    $status = $row['status'];
-    $planted = $row['planted'];
-    $longitude = $row['longitude'];
-    $latitude = $row['latitude'];
-
-    $array = array($id,$school,$user,$location,$tree_num,$tree_name,$type,$status,$planted,$longitude,$latitude);
+    $g_level = $row['g_level'];
+    $h_task = $row['h_task'];
+    $online = $row['online'];
+    $f2f = $row['f2f'];
+    $prescription = $row['prescription'];
+    $treatment = $row['treatment'];
+    $referal = $row['referal'];
+    $subtotal = $row['subtotal'];
+    
+    $array = array($g_level,$h_task,$online,$f2f,$prescription,$treatment,$referal,$subtotal);
     fputcsv($file, $array);
 }
 
@@ -36,6 +36,6 @@ header("Content-Type: application/csv;");
 readfile($filename);
 unlink($filename);
 exit();
-
+}
 
 ?>

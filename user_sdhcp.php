@@ -56,7 +56,7 @@ include 'php/session.php';
                   <th class="no">ID</th>
                   <th>Report Title </th>
                   <th>Quarter </th>
-                  <th>date</th>
+                  <th>Date</th>
                   <th width="50px">
                     Choices
                   </th>
@@ -83,11 +83,11 @@ include 'php/session.php';
                             <td>
                             
                             <div class="action_container">
-                                <a href="user_sdhcp_data.php?id=<?= $row['rep_id']; ?>" class="btn btn-primary" role="button" style="margin-right:3px">
+                                <a href="user_sdhcp_data.php?id=<?= $row['rep_id']; ?>" class="btn btn-secondary" role="button" style="margin-right:3px">
                                 View
                                 </a>
 
-                                <a href="user_inventory_edit.php?id=<?= $row['rep_id']; ?>" class="btn btn-primary" role="button" style="margin-right:3px">
+                                <a href="user_sdhcp_edit.php?id=<?= $row['rep_id']; ?>" class="btn btn-primary" role="button" style="margin-right:3px">
                                 Edit
                                 </a>
 
@@ -106,7 +106,7 @@ include 'php/session.php';
                         }
                         else
                         {
-                            echo "<h5> No Record Found </h5>";
+                            echo "<h5> No Reports Found </h5>";
                         }
                     ?>
               </tbody>
@@ -118,7 +118,7 @@ include 'php/session.php';
       </section>
 
  <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
- <?php include 'includes/modals/inv_del_modal.php';?>
+ <?php include 'includes/modals/sdhcp_del_modal.php';?>
                   </form>
                 </div>
               </div>

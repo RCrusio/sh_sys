@@ -28,20 +28,7 @@ include 'php/session.php';
   <?php include 'includes/user_sidebar.php';?>
   <section class="home-section">
       <div class="container_form">
-
-          <H1>SDHCP Data</H1>
-          
-          <div class="container"> 
-          <?php include 'php/message.php';?>
-          <div class="row mb-4 md-3">
-          <div class="hstack gap-4">
-            
-          <div class="input-group rounded ">
-            <input type="text" class="form-control rounded" id="search_input" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <span class="input-group-text border-0" id="search-addon">
-            <i class='bx bx-search-alt'></i>
-            </span>
-            <?php
+      <?php
                 if(isset($_GET['id'])) 
                 {
                     $id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -52,12 +39,58 @@ include 'php/session.php';
                     {
                         $row = mysqli_fetch_array($query_run);
               ?>
-              <input type="" name="rep_id" value="<?= $row['rep_id']; ?>">
-          </div>
+          <H1><a href="user_sdhcp.php"><i class='bx bx-left-arrow-alt'></i></a>SDHCP Data <?= $row['rep_title']; ?> </H1>
+
+          <div class="container"> 
+          <?php include 'php/message.php';?>
+          <div class="row mb-4 md-3">
+          <div class="hstack gap-4">
+            
+          <div class="input-group rounded ">
+            <input type="text" class="form-control rounded" id="search_input" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <span class="input-group-text border-0" id="search-addon">
+            <i class='bx bx-search-alt'></i>
+            </span>
+            </div>
+
+              <form action="php/code.php" method="post">
+              <input type="hidden" name="rep_id" value="<?= $row['rep_id']; ?>">
+
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Clear Data
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Clear Data</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to clear all data?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" name="clear" class="btn btn-danger">Clear Data</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </form>
+
             <a class="btn btn-primary ms-auto" role="button" href="user_sdhcp_add_data.php?id=<?= $row['rep_id']; ?>">
                        Add Report
               </a>
- 
+              
+              <form action="php/export.php" method="post">
+              <input type="hidden" name="rep_id" value="<?= $row['rep_id']; ?>">
+              <button type="submit" name="export" class="btn btn-success ms-auto" role="button">  
+                       Export Data
+              </button>
+              </form>
              </div>
              
           </div> 
@@ -83,7 +116,7 @@ include 'php/session.php';
                   <th rowspan="2">Referal</th>  
                   <th rowspan="2">Subtotal</th>
                   <th rowspan="2" width="50px">
-                    Choices
+                    Edit Data
                   </th>
 
                   <tr>
@@ -123,20 +156,15 @@ include 'php/session.php';
                             
                             <div class="action_container">
                                 
-                                <a href="user_inventory_edit.php?id=<?= $row['data_id']; ?>" class="btn btn-primary" role="button" style="margin-right:3px">
+                                <a href="user_sdhcp_edit_data.php?id=<?= $row['data_id']; ?>" class="btn btn-primary" role="button" style="margin-right:3px">
                                 Edit
                                 </a>
-
-                                
-                                <button type="button" class="btn btn-danger deletebtn">
-                                Delete
-                                </button>
-                               
-
+                  
                             </div>
                             </td>
 
                        </tr>
+                       
                        <?php
                         }
                     }
@@ -147,6 +175,69 @@ include 'php/session.php';
                     ?>
                        
               </tbody>
+              
+                       <tr>
+                       <td>Grand Total:</td>
+                       <td></td>
+
+<!--Online Total-------->
+              <?php
+              $result = mysqli_query($conn, "SELECT sum(online) FROM tb_sdhcp_data WHERE rep_id='$id' ") or die(mysqli_error());
+              while($row = mysqli_fetch_array($result)){
+              ?>
+                       <td><?php echo $row['sum(online)'];?></td>
+                       <?php
+                       }
+              ?>
+
+<!--Face-To-Face Total-------->
+               <?php
+              $result = mysqli_query($conn, "SELECT sum(f2f) FROM tb_sdhcp_data WHERE rep_id='$id' ") or die(mysqli_error());
+              while($row = mysqli_fetch_array($result)){
+              ?>
+                       <td><?php echo $row['sum(f2f)'];?></td>
+                       <?php
+                       }
+              ?>
+
+<!--Prescription Total-------->
+               <?php
+              $result = mysqli_query($conn, "SELECT sum(prescription) FROM tb_sdhcp_data WHERE rep_id='$id' ") or die(mysqli_error());
+              while($row = mysqli_fetch_array($result)){
+              ?>
+                       <td><?php echo $row['sum(prescription)'];?></td>
+                       <?php
+                       }
+              ?>
+
+              <!--Prescription Total-------->
+              <?php
+              $result = mysqli_query($conn, "SELECT sum(treatment) FROM tb_sdhcp_data WHERE rep_id='$id' ") or die(mysqli_error());
+              while($row = mysqli_fetch_array($result)){
+              ?>
+                       <td><?php echo $row['sum(treatment)'];?></td>
+                       <?php
+                       }
+              ?>
+
+              <!--Prescription Total-------->
+   
+    
+                       <td></td>
+
+              <!--Prescription Total-------->
+              <?php
+              $result = mysqli_query($conn, "SELECT sum(subtotal) FROM tb_sdhcp_data WHERE rep_id='$id' ") or die(mysqli_error());
+              while($row = mysqli_fetch_array($result)){
+              ?>
+                       <td><?php echo $row['sum(subtotal)'];?></td>
+                       <?php
+                       }
+              ?>
+              <td></td>
+                       </tr>
+
+             
             </table>
 
             </form>

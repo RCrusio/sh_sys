@@ -1,7 +1,7 @@
 <?php
 
 if(!empty($_SESSION["id"])){
-  header("Location: user_locator.php");
+  header("Location: user_dash.php");
 }
 if(isset($_POST["submit"])){
   $email = $_POST["email"];
