@@ -31,8 +31,8 @@ include 'php/session.php';
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-9">
 
-                  <h1>Update SDHCP Report</h1>
-                
+                  <h1>Add Monthly Report</h1>
+                <form action="php/code2.php" method="post">
                   <div class="card" style="border-radius: 15px;">
                     <div class="card-body">
 
@@ -67,19 +67,8 @@ include 'php/session.php';
                   }
                 ?>
                       
-                      <?php
-              
-                    $id = mysqli_real_escape_string($conn, $_GET['id']);
-                    $query = "SELECT * FROM tb_sdhcp WHERE rep_id='$id' ";
-                    $query_run = mysqli_query($conn, $query);
-
-                    if(mysqli_num_rows($query_run) > 0)
-                    {
-                        $row = mysqli_fetch_array($query_run);
-                  ?>
-                  <form action="php/code.php" method="post">
                       <hr class="mx-n3">
-                      <input type="hidden" name="rep_id" value="<?= $row['rep_id']; ?>">
+
                     <div class="row align-items-center py-3">
                         <div class="col-md-3 ps-5">
 
@@ -88,34 +77,25 @@ include 'php/session.php';
                         </div>
                         <div class="col-md-9 pe-5">
 
-                          <textarea class="form-control" name="rep_title" rows="3" placeholder="Input Report Title....."><?= $row['rep_title']; ?></textarea>
+                          <textarea class="form-control" name="mon_title" rows="3" placeholder="Input Report Title....."></textarea>
                         </div>
                       </div>
 
                     <hr class="mx-n3">
 
-                      <div class="row align-items-center pt-4 pb-3">
-                        <div class="col ps-5">
 
-                          <h6 class="mb-1">Quarter<span style="color:red">*</span></h6>
-                          <select class="form-select form-select-lg " name="quarter" aria-label="Default select example">
-                              <option selected><?= $row['quarter']; ?></option>
-                              <option value="1st Quarter">1st Quarter</option>
-                              <option value="2nd Quarter">2nd Quarter</option>
-                              <option value="3rd Quarter">3rd Quarter</option>
-                              <option value="4th Quarter">4th Quarter</option>
-                          </select>
+
+                      <div class="row align-items-center py-3">
+                        <div class="col-md-3 ps-5">
+
+                          <h6 class="mb-0">Date<span style="color:red">*</span></h6>
+
                         </div>
-                        
- 
+                        <div class="col-md-9 pe-5">
 
-                        <div class="col pe-5 ps-2">
+                        <input type="month" name="mon_date" class="form-control form-control-lg" />
 
-                          <h6 class="mb-1">Date<span style="color:red">*</span></h6>
-                          <input type="month" name="date" value="<?= $row['date']; ?>" class="form-control form-control-lg" />
                         </div>
- 
-                        
                       </div>
 
                    
@@ -123,10 +103,10 @@ include 'php/session.php';
                       <hr class="mx-n3">
 
                       <div class="px-5 py-4">
-                        <a href="user_sdhcp.php" type="button" class="btn btn-secondary btn-lg">Go Back</a>
+                        <a href="user_monthly.php" type="button" class="btn btn-secondary btn-lg">Go Back</a>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Update Report</button>
+                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Report</button>
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,18 +117,16 @@ include 'php/session.php';
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                Are you sure you want to update a report?
+                                Are you sure you want to add a report?
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="update_rep" class="btn btn-primary">Update</button>
+                                <button type="submit" name="add_mon" class="btn btn-primary">Add</button>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <?php
-                  }
-                ?>
+
                       </div>
                       <form>
                     </div>

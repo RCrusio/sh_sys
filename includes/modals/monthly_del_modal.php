@@ -5,12 +5,12 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Report</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <form action="php/code.php" method="POST">
+                  <form action="php/code2.php" method="POST">
                   <div class="modal-body">
                   <input type="hidden" name="delete_data" id="delete_data">
                   <h4> Do you want to Delete Report?</h4>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="delete_report" class="btn btn-danger">Delete</button>
+                    <button type="submit" name="delete_monthly" class="btn btn-danger">Delete</button>
                   </div>

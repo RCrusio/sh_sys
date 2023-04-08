@@ -30,8 +30,8 @@ include 'php/session.php';
       <div class="container_form">
 
           <H1>SDHCP Report</H1>
-          <a href="#" type="button" class="btn btn-primary">Form</a>
-          <a href="user_sdhcp.php" type="button" class="btn btn-primary">Table</a>
+          <a href="user_monthly.php" type="button" class="btn btn-primary">Monthly</a>
+          <a href="user_sdhcp.php" type="button" class="btn btn-primary">SDHCP</a>
         </div>
       </div>
       </section>

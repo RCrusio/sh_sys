@@ -9,44 +9,33 @@
     <li>
         <a href="user_dash.php">
         <i class='bx bxs-dashboard'></i>
-          <span class="link_name">Dashboard</span>
+          <span class="link_name">Home</span>
+        </a>  
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="user_dash.php">Home</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="user_sdhcp.php">
+        <i class='bx bx-history'></i>
+          <span class="link_name">SDHCP Report</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="user_dash.php">try</a></li>
+          <li><a class="link_name" href="user_sdhcp.php">SDHCP Report</a></li>
         </ul>
       </li>
+
       <li>
-  
-        
-        <div class="iocn-link">
-          <a >
-            <i class='bx bx-collection' ></i>
-            <span class="link_name">Forms</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" >Forms</a></li>
-          <li><a href="user_sdhcp_add.php">SDHCP Form</a></li>
-          <li><a href="">Achievement Form</a></li>
-        </ul>
-      
-      </li>
-      
-      <li>  
-        <div class="iocn-link">
-          <a>  
-          <i class='bx bx-history'></i>
-          <span class="link_name">Reports</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name">Reports</a></li>
-          <li><a href="user_sdhcp.php">SDHCP Report</a></li>
-          <li><a href="">Achievement Report</a></li>
+        <a href="user_monthly.php">
+        <i class='bx bxs-calendar'></i>
+          <span class="link_name">Monthly Report</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="user_monthly.php">Monthly Report</a></li>
         </ul>
       </li>
+      
 
       <li>
         <a href="try.php">

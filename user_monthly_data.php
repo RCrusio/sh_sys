@@ -31,23 +31,84 @@ include 'php/session.php';
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-9">
 
-                  <h1>Update SDHCP Report</h1>
                 
+                  <h1>Add SDHCP Report</h1>
+                <form action="php/code.php" method="post">
                   <div class="card" style="border-radius: 15px;">
                     <div class="card-body">
+                         <div class="row mb-4 md-3">
+            <div class="hstack gap-4">
+            
+          
 
-                <?php
+              <form action="php/code.php" method="post">
+              <input type="hidden" name="rep_id" value="">
+
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Clear Data
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Clear Data</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to clear all data?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" name="clear" class="btn btn-danger">Clear Data</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </form>
+
+              <a class="btn btn-primary me-auto" role="button" href="">
+                       Add Report
+              </a>
               
-                    $id = mysqli_real_escape_string($conn, $_SESSION['id']);
-                    $query = "SELECT * FROM tb_user WHERE id='$id' ";
-                    $query_run = mysqli_query($conn, $query);
+              <form action="php/export.php" method="post">
+              <input type="hidden" name="rep_id" value="">
 
-                    if(mysqli_num_rows($query_run) > 0)
-                    {
-                        $row = mysqli_fetch_array($query_run);
-                  ?>
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Export Data
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Clear Data</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to export data to "Excel"?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" name="export" class="btn btn-sucess">Export</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              </form>
+              
+            
+             </div>
+             
+          </div> 
+           
+
                   
-              <input type="hidden" name="user_id"  value="<?= $row['id']; ?>" class="form_control no" >
+              <input type="hidden" name="user_id"  value="" class="form_control no" >
              
             </div>  
 
@@ -59,27 +120,14 @@ include 'php/session.php';
                         </div>
                         <div class="col-md-9 pe-5">
 
-                        <input type="text" name="user_name" class="form-control form-control-lg" value="<?= $row['name']; ?>" readonly />
+                        <input type="text" name="user_name" class="form-control form-control-lg" value="" readonly />
 
                         </div>
                       </div>
-                      <?php
-                  }
-                ?>
+         
                       
-                      <?php
-              
-                    $id = mysqli_real_escape_string($conn, $_GET['id']);
-                    $query = "SELECT * FROM tb_sdhcp WHERE rep_id='$id' ";
-                    $query_run = mysqli_query($conn, $query);
-
-                    if(mysqli_num_rows($query_run) > 0)
-                    {
-                        $row = mysqli_fetch_array($query_run);
-                  ?>
-                  <form action="php/code.php" method="post">
                       <hr class="mx-n3">
-                      <input type="hidden" name="rep_id" value="<?= $row['rep_id']; ?>">
+
                     <div class="row align-items-center py-3">
                         <div class="col-md-3 ps-5">
 
@@ -88,7 +136,7 @@ include 'php/session.php';
                         </div>
                         <div class="col-md-9 pe-5">
 
-                          <textarea class="form-control" name="rep_title" rows="3" placeholder="Input Report Title....."><?= $row['rep_title']; ?></textarea>
+                          <textarea class="form-control" name="rep_title" rows="3" placeholder="Input Report Title....."></textarea>
                         </div>
                       </div>
 
@@ -99,7 +147,7 @@ include 'php/session.php';
 
                           <h6 class="mb-1">Quarter<span style="color:red">*</span></h6>
                           <select class="form-select form-select-lg " name="quarter" aria-label="Default select example">
-                              <option selected><?= $row['quarter']; ?></option>
+                              <option selected>Select Quarter</option>
                               <option value="1st Quarter">1st Quarter</option>
                               <option value="2nd Quarter">2nd Quarter</option>
                               <option value="3rd Quarter">3rd Quarter</option>
@@ -112,7 +160,7 @@ include 'php/session.php';
                         <div class="col pe-5 ps-2">
 
                           <h6 class="mb-1">Date<span style="color:red">*</span></h6>
-                          <input type="month" name="date" value="<?= $row['date']; ?>" class="form-control form-control-lg" />
+                          <input type="month" name="date" class="form-control form-control-lg" />
                         </div>
  
                         
@@ -126,7 +174,7 @@ include 'php/session.php';
                         <a href="user_sdhcp.php" type="button" class="btn btn-secondary btn-lg">Go Back</a>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Update Report</button>
+                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Report</button>
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,18 +185,16 @@ include 'php/session.php';
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                Are you sure you want to update a report?
+                                Are you sure you want to add a report?
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="update_rep" class="btn btn-primary">Update</button>
+                                <button type="submit" name="add_rep" class="btn btn-primary">Add</button>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <?php
-                  }
-                ?>
+
                       </div>
                       <form>
                     </div>

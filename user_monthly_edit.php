@@ -31,7 +31,7 @@ include 'php/session.php';
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-9">
 
-                  <h1>Update SDHCP Report</h1>
+                  <h1>Update Monthly Report</h1>
                 
                   <div class="card" style="border-radius: 15px;">
                     <div class="card-body">
@@ -70,16 +70,16 @@ include 'php/session.php';
                       <?php
               
                     $id = mysqli_real_escape_string($conn, $_GET['id']);
-                    $query = "SELECT * FROM tb_sdhcp WHERE rep_id='$id' ";
+                    $query = "SELECT * FROM tb_monthly WHERE mon_id='$id' ";
                     $query_run = mysqli_query($conn, $query);
 
                     if(mysqli_num_rows($query_run) > 0)
                     {
                         $row = mysqli_fetch_array($query_run);
                   ?>
-                  <form action="php/code.php" method="post">
+                  <form action="php/code2.php" method="post">
                       <hr class="mx-n3">
-                      <input type="hidden" name="rep_id" value="<?= $row['rep_id']; ?>">
+                      <input type="hidden" name="mon_id" value="<?= $row['mon_id']; ?>">
                     <div class="row align-items-center py-3">
                         <div class="col-md-3 ps-5">
 
@@ -88,34 +88,23 @@ include 'php/session.php';
                         </div>
                         <div class="col-md-9 pe-5">
 
-                          <textarea class="form-control" name="rep_title" rows="3" placeholder="Input Report Title....."><?= $row['rep_title']; ?></textarea>
+                          <textarea class="form-control" name="mon_title" rows="3" placeholder="Input Report Title....."><?= $row['mon_title']; ?></textarea>
                         </div>
                       </div>
 
                     <hr class="mx-n3">
 
-                      <div class="row align-items-center pt-4 pb-3">
-                        <div class="col ps-5">
+                    <div class="row align-items-center py-3">
+                        <div class="col-md-3 ps-5">
 
-                          <h6 class="mb-1">Quarter<span style="color:red">*</span></h6>
-                          <select class="form-select form-select-lg " name="quarter" aria-label="Default select example">
-                              <option selected><?= $row['quarter']; ?></option>
-                              <option value="1st Quarter">1st Quarter</option>
-                              <option value="2nd Quarter">2nd Quarter</option>
-                              <option value="3rd Quarter">3rd Quarter</option>
-                              <option value="4th Quarter">4th Quarter</option>
-                          </select>
+                          <h6 class="mb-0">Date<span style="color:red">*</span></h6>
+
                         </div>
-                        
- 
+                        <div class="col-md-9 pe-5">
 
-                        <div class="col pe-5 ps-2">
+                        <input type="month" name="mon_date" value="<?= $row['mon_date']; ?>" class="form-control form-control-lg" />
 
-                          <h6 class="mb-1">Date<span style="color:red">*</span></h6>
-                          <input type="month" name="date" value="<?= $row['date']; ?>" class="form-control form-control-lg" />
                         </div>
- 
-                        
                       </div>
 
                    
@@ -141,7 +130,7 @@ include 'php/session.php';
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="update_rep" class="btn btn-primary">Update</button>
+                                <button type="submit" name="update_mon" class="btn btn-primary">Update</button>
                               </div>
                             </div>
                           </div>
