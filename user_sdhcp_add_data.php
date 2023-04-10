@@ -30,7 +30,7 @@ include 'php/session.php';
   <section class="home-section">
       <div class="container_form">
 
-      <?php
+      <?php 
                 if(isset($_GET['id'])) 
                 {
                     $id = mysqli_real_escape_string($conn, $_GET['id']);

@@ -28,11 +28,12 @@ include 'php/session.php';
   <section class="home-section">
       <div class="container_form">   
 
-              <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-xl-9">
+      <h1 style="margin-left:7%">Add SDHCP Report</h1>
+              <div class="row d-flex justify-content-center align-items-center h-100 mb-5">
+                <div class="col-xl-10">
 
                 
-                  <h1>Add SDHCP Report</h1>
+                  
                 <form action="php/code.php" method="post">
                   <div class="card" style="border-radius: 15px;">
                     <div class="card-body">
@@ -69,7 +70,7 @@ include 'php/session.php';
               </div>
               </form>
 
-              <a class="btn btn-primary me-auto" role="button" href="">
+              <a class="btn btn-primary " role="button" href="user_monthly_add_data.php?id=<?= $row['rep_id']; ?>">
                        Add Report
               </a>
               
@@ -101,7 +102,7 @@ include 'php/session.php';
 
               </form>
               
-            
+              
              </div>
              
           </div> 
@@ -112,65 +113,45 @@ include 'php/session.php';
              
             </div>  
 
+      
+            <div class="row text-center mb-2">
+                      <h4><strong> MONTHLY / ANNUAL HEALTH SERVICES<br>ACCOMPLISHMENT REPORT	</strong></h4>
+                    </div>
+
                       <div class="row align-items-center py-3">
-                        <div class="col-md-3 ps-5">
+                        <div class="col ps-5">
 
-                          <h6 class="mb-0">Nurse</h6>
-
-                        </div>
-                        <div class="col-md-9 pe-5">
-
-                        <input type="text" name="user_name" class="form-control form-control-lg" value="" readonly />
+                          <h5 class="mb-2">Total No. of Elem. Schools Visited</h5>
+                          <input type="number" name="user_name" class="form-control form-control-lg" value="11" readonly />
 
                         </div>
+                       
+                        <div class="col pe-5">
+
+                          <h5 class="mb-2">Total No. of Sec. Schools Visited</h5>
+                          <input type="number" name="user_name" class="form-control form-control-lg" value="12" readonly />
+
+                        </div>
+                        
                       </div>
          
                       
-                      <hr class="mx-n3">
+                      <hr class="mx-n3 ">
 
-                    <div class="row align-items-center py-3">
-                        <div class="col-md-3 ps-5">
+                     
+                    <!-- General Information -->
+                      <?php include 'includes/forms/gen_information.php';?>
 
-                          <h6 class="mb-0">Title Report</h6>
 
-                        </div>
-                        <div class="col-md-9 pe-5">
+                      <hr class="mx-n3">  
+                      
+                      <!-- II. Health Services -->
+                      <?php include 'includes/forms/health_serve.php';?>
 
-                          <textarea class="form-control" name="rep_title" rows="3" placeholder="Input Report Title....."></textarea>
-                        </div>
-                      </div>
-
-                    <hr class="mx-n3">
-
-                      <div class="row align-items-center pt-4 pb-3">
-                        <div class="col ps-5">
-
-                          <h6 class="mb-1">Quarter<span style="color:red">*</span></h6>
-                          <select class="form-select form-select-lg " name="quarter" aria-label="Default select example">
-                              <option selected>Select Quarter</option>
-                              <option value="1st Quarter">1st Quarter</option>
-                              <option value="2nd Quarter">2nd Quarter</option>
-                              <option value="3rd Quarter">3rd Quarter</option>
-                              <option value="4th Quarter">4th Quarter</option>
-                          </select>
-                        </div>
-                        
- 
-
-                        <div class="col pe-5 ps-2">
-
-                          <h6 class="mb-1">Date<span style="color:red">*</span></h6>
-                          <input type="month" name="date" class="form-control form-control-lg" />
-                        </div>
- 
-                        
-                      </div>
-
-                   
 
                       <hr class="mx-n3">
 
-                      <div class="px-5 py-4">
+                      <div class="px-5 py-4 ms-auto">
                         <a href="user_sdhcp.php" type="button" class="btn btn-secondary btn-lg">Go Back</a>
 
                         <!-- Button trigger modal -->
@@ -202,13 +183,13 @@ include 'php/session.php';
 
                 </div>
 
-
+       
         </section>
       </div>
       </section>
 
 
-  
+      
 
 <script src="assets/js/sidebar.js"></script>
 <script src="assets/js/delete_modal.js"></script>
