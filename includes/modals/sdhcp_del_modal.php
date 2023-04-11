@@ -8,7 +8,7 @@
                   <form action="php/code.php" method="POST">
                   <div class="modal-body">
                   <input type="hidden" name="delete_data" id="delete_data">
-                  <h4> Do you want to Delete Report?</h4>
+                  <h4> Do you want to Delete <strong>"<?= $row['rep_title']; ?>" </strong> Report?</h4>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

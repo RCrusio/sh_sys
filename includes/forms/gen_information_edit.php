@@ -1,5 +1,5 @@
 
-<div class="row text-center mb-2">
+ <div class="row text-center mb-2">
                       <h4><strong> I. General Information</strong></h4>
                     </div>
                     <div class="row ps-4">
@@ -7,17 +7,17 @@
                     </div>
 
                     <div class="row align-items-center py-2 mb-3">
-                        <div class="col ps-5">
+                        <div class="col ps-5 ">
 
                           <h5 class="mb-2"><span class="badge bg-secondary">Male:</span></h5>
-                          <input type="number" name="se_male" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="se_male" class="form-control form-control-lg" value="<?= $row['se_male']; ?>"  />
 
                         </div>
 
                         <div class="col pe-5">
 
                         <h5 class="mb-2"><span class="badge bg-secondary">Female:</span></h5>
-                          <input type="number" name="se_female" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="se_female"  class="form-control form-control-lg" value="<?= $row['se_female']; ?>"  />
 
                         </div>
                       
@@ -42,31 +42,29 @@
                         <div class="col ps-5">
 
                           <h5 class="mb-2"><span class="badge bg-secondary">Male:</span></h5>
-                          <input type="number" name="sp_teaching_male" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="sp_teaching_male" class="form-control form-control-lg" value="<?= $row['sp_teaching_male']; ?>"  />
 
                         </div>
 
                         <div class="col ">
 
                         <h5 class="mb-2"><span class="badge bg-secondary">Female:</span></h5>
-                          <input type="number" name="sp_teaching_female" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="sp_teaching_female" class="form-control form-control-lg" value="<?= $row['sp_teaching_female']; ?>"  />
 
                         </div>
 
                         <div class="col ps-5 ">
 
                           <h5 class="mb-2"><span class="badge bg-secondary">Male:</span></h5>
-                          <input type="number" name="sp_non_teaching_male" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="sp_non_teaching_male" class="form-control form-control-lg" value="<?= $row['sp_non_teaching_male']; ?>"  />
 
                         </div>
 
                         <div class="col pe-5">
 
                         <h5 class="mb-2"><span class="badge bg-secondary">Female:</span></h5>
-                          <input type="number" name="sp_non_teaching_female" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="sp_non_teaching_female" class="form-control form-control-lg" value="<?= $row['sp_non_teaching_female']; ?>"  />
 
                         </div>
                       
                       </div>
-
-                      

@@ -33,7 +33,7 @@ include 'php/session.php';
 
                   <h1>Update SDHCP Report</h1>
                 
-                  <div class="card" style="border-radius: 15px;">
+                  <div class="card mb-4" style="border-radius: 15px;">
                     <div class="card-body">
 
                 <?php

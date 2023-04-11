@@ -39,9 +39,9 @@ include 'php/session.php';
                         $row = mysqli_fetch_array($query_run);
               ?>
 
-            <h1 style="margin-left:8%" class="mb-3"><a href="user_monthly.php"><i class='bx bx-left-arrow-alt'></i></a>SDHCP Data <?= $row['mon_title']; ?></h1>
+            <h1 style="margin-left:3%" class="mb-3"><a href="user_monthly.php"><i class='bx bx-left-arrow-alt'></i></a>SDHCP Data <?= $row['mon_title']; ?></h1>
               <div class="row d-flex justify-content-center align-items-center h-100 mb-5">
-                <div class="col-xl-10">
+                <div class="col-xl-11">
 
                 
                 
@@ -83,11 +83,29 @@ include 'php/session.php';
               </div>
               </form>
 
-              <a class="btn btn-primary me-auto" role="button" href="user_monthly_data_add.php?id=<?= $row['mon_id']; ?>">
+              <a class="btn btn-primary me-auto" id="add" hidden role="button" href="user_monthly_data_add.php?id=<?= $row['mon_id']; ?>">
                        Add Data
-              </a>
+                    </a>
 
-              <a class="btn btn-primary " role="button" href="user_monthly_data_edit.php?id=<?= $row['mon_id']; ?>">
+                    <?php
+        }
+        
+        }
+        ?>
+
+      <?php
+               
+               $query = "SELECT * FROM tb_monthly_data WHERE mon_id='$id' ";
+               $query_run = mysqli_query($conn, $query);
+
+               if(mysqli_num_rows($query_run) > 0)
+               {
+                   $row = mysqli_fetch_array($query_run);
+                   foreach($query_run as $row)
+                 {
+         ?>
+
+              <a class="btn btn-primary " role="button" href="user_monthly_data_edit.php?id=<?= $row['data_id']; ?>">
                        Edit Data
               </a>
               
@@ -127,22 +145,8 @@ include 'php/session.php';
 
              
             </div>  
-            <?php
-        }
         
-        }
-        ?>
-            <?php
-               
-               $query = "SELECT * FROM tb_monthly_data WHERE mon_id='$id' ";
-               $query_run = mysqli_query($conn, $query);
-
-               if(mysqli_num_rows($query_run) > 0)
-               {
-                   $row = mysqli_fetch_array($query_run);
-                   foreach($query_run as $row)
-                 {
-         ?>
+            
 
             <div class="row text-center mb-2">
                       <h4><strong> MONTHLY / ANNUAL HEALTH SERVICES<br>ACCOMPLISHMENT REPORT	</strong></h4>
@@ -152,7 +156,7 @@ include 'php/session.php';
                         <div class="col ps-5">
 
                           <h5 class="mb-2">Total No. of Elem. Schools Visited</h5>
-                          <input type="number" name="user_name" class="form-control form-control-lg" value="<?= $row['total_elem_vis']; ?>" readonly />
+                          <input type="number" name="user_name" id="data" class="form-control form-control-lg" value="<?= $row['total_elem_vis']; ?>" readonly />
 
                         </div>
                        
@@ -205,7 +209,7 @@ include 'php/session.php';
 
 
       
-
+<script src="assets/js/disable.js"></script>
 <script src="assets/js/sidebar.js"></script>
 <script src="assets/js/delete_modal.js"></script>
 <script src="assets/js/search.js"></script>

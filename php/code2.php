@@ -59,99 +59,8 @@ if(isset($_POST['update_mon']))
 }
 
 
-//SDHCP Data---------------------------------->
 
-if(isset($_POST["submit_sdhcp"])){
-    $data_id = $_POST["data_id"];
-    $rep_id = $_POST["rep_id"];
-    $g_level = $_POST["g_level"];
-    $h_task = $_POST["h_task"];
-    $online = $_POST["online"];
-    $f2f = $_POST["f2f"]; 
-    $prescription = $_POST["prescription"];
-    $treatment = $_POST["treatment"];
-    $referal = $_POST["referal"];
-    $subtotal = $_POST["subtotal"];
-
-    
-      foreach($data_id as $key => $value){
-        $result = "INSERT INTO tb_sdhcp_data VALUES('$data_id[$key]','$rep_id[$key]','$g_level[$key]','$h_task[$key]','$online[$key]','$f2f[$key]', '$prescription[$key]',  '$treatment[$key]','$referal[$key]','$subtotal[$key]')";
-  
-        $query = mysqli_query($conn, $result);
-  
-        if($result)
-          {
-              $_SESSION['success_message'] = "Data Stored Successfully";
-              header("Location: ../user_sdhcp.php");
-          }
-          else
-          {
-              $_SESSION['danger_message'] = "Data Not Stored";
-              header("Location: ../user_sdhcp.php");
-          }
-      }
-  }
-
-//SDHCP Update Report Data---->
-
-if(isset($_POST['update_rep_data']))
-{
-    $data_id = mysqli_real_escape_string($conn, $_POST['data_id']);
-    $h_task = mysqli_real_escape_string($conn, $_POST['h_task']);
-    $online = mysqli_real_escape_string($conn, $_POST['online']);
-    $f2f = mysqli_real_escape_string($conn, $_POST['f2f']);
-    $prescription = mysqli_real_escape_string($conn, $_POST['prescription']);
-    $treatment = mysqli_real_escape_string($conn, $_POST['treatment']);
-    $referal = mysqli_real_escape_string($conn, $_POST['referal']);
-    $subtotal = mysqli_real_escape_string($conn, $_POST['subtotal']);
-
-
-    
-    $query = "UPDATE tb_sdhcp_data SET h_task='$h_task', online='$online', f2f='$f2f',prescription='$prescription', treatment='$treatment', referal='$referal',subtotal='$subtotal' WHERE data_id='$data_id'";
-
-    $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
-        $_SESSION['success_message'] = "Data Edited Successfully";
-        header("Location: ../user_sdhcp.php");
-        exit(0);
-    }
-    else
-    {
-        $_SESSION['danger_message'] = "Data Not Edited";
-        header("Location: ../user_sdhcp.php");
-        exit(0);
-    }
-}
-
-
-//SDHCP clear Report Data---->
-  if(isset($_POST['clear']))
-  {
-      $rep_id = $_POST['rep_id'];
-  
-      
-      $query2 = "DELETE FROM tb_sdhcp_data WHERE rep_id='$rep_id'";
-      $query_run2 = mysqli_query($conn, $query2);
-      
-  
-      if($query_run2)
-      {
-          $_SESSION['warning_message'] = "Data Cleared Successfully";
-          header("Location: ../user_sdhcp.php");
-          exit(0);
-      }
-      else
-      {
-          $_SESSION['danger_message'] = "Data Not Cleared";
-          header("Location: ../user_sdhcp.php");
-          exit(0);
-      }
-  }
-
-
-
-//SDHCP delete Report & Data---->
+//Monthly delete Report & Data---->
   if(isset($_POST['delete_monthly']))
   {
       $id = $_POST['delete_data'];
@@ -176,4 +85,179 @@ if(isset($_POST['update_rep_data']))
       }
   }
 
+
+  //monthly clear Report Data---->
+if(isset($_POST['clear']))
+{
+    $mon_id = $_POST['mon_id'];
+
+    
+    $query2 = "DELETE FROM tb_monthly_data WHERE mon_id='$mon_id'";
+    $query_run2 = mysqli_query($conn, $query2);
+    
+
+    if($query_run2)
+    {
+        $_SESSION['warning_message'] = "Data Cleared Successfully";
+        header("Location: ../user_monthly.php");
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['danger_message'] = "Data Not Cleared";
+        header("Location: ../user_monthly.php");
+        exit(0);
+    }
+}
+
+
+//-----------------------------------
+//Add Monthly Report Data--------------
+
+if(isset($_POST['add_mon_data']))
+{
+    //$rep_id = mysqli_real_escape_string($conn, $_POST['id']);
+    $mon_id = mysqli_real_escape_string($conn, $_POST['mon_id']);
+
+    $total_elem_vis = mysqli_real_escape_string($conn, $_POST['total_elem_vis']);
+    $total_sec_vis = mysqli_real_escape_string($conn, $_POST['total_sec_vis']);
+
+    $se_male = mysqli_real_escape_string($conn, $_POST['se_male']);
+    $se_female = mysqli_real_escape_string($conn, $_POST['se_female']);
+
+    $sp_teaching_male = mysqli_real_escape_string($conn, $_POST['sp_teaching_male']);
+    $sp_teaching_female = mysqli_real_escape_string($conn, $_POST['sp_teaching_female']);
+
+    $sp_non_teaching_male = mysqli_real_escape_string($conn, $_POST['sp_non_teaching_male']);
+    $sp_non_teaching_female = mysqli_real_escape_string($conn, $_POST['sp_non_teaching_female']);
+
+    $ha_noa_learners = mysqli_real_escape_string($conn, $_POST['ha_noa_learners']);
+    $ha_noa_teachers = mysqli_real_escape_string($conn, $_POST['ha_noa_teachers']);
+    $ha_noa_ntp = mysqli_real_escape_string($conn, $_POST['ha_noa_ntp']);
+
+    
+
+    $ha_nhp_learners = mysqli_real_escape_string($conn, $_POST['ha_nhp_learners']);
+    $ha_nhp_teachers = mysqli_real_escape_string($conn, $_POST['ha_nhp_teachers']);
+    $ha_nhp_ntp = mysqli_real_escape_string($conn, $_POST['ha_nhp_ntp']);
+
+    $ha_vs_learners = mysqli_real_escape_string($conn, $_POST['ha_vs_learners']);
+
+    $td_learners = mysqli_real_escape_string($conn, $_POST['td_learners']);
+    $td_teachers = mysqli_real_escape_string($conn, $_POST['td_teachers']);
+    $td_ntp = mysqli_real_escape_string($conn, $_POST['td_ntp']);
+
+    $npd_r1 = mysqli_real_escape_string($conn, $_POST['npd_r1']);
+    $npd_r2 = mysqli_real_escape_string($conn, $_POST['npd_r2']);
+
+    $npgis = mysqli_real_escape_string($conn, $_POST['npgis']);
+
+    $npi_g1v = mysqli_real_escape_string($conn, $_POST['npi_g1v']);
+    $npi_g7v = mysqli_real_escape_string($conn, $_POST['npi_g7v']);
+    $npi_g4v = mysqli_real_escape_string($conn, $_POST['npi_g4v']);
+
+    $nca_learners = mysqli_real_escape_string($conn, $_POST['nca_learners']);
+    $nca_teachers = mysqli_real_escape_string($conn, $_POST['nca_teachers']);
+
+    $referral_physician = mysqli_real_escape_string($conn, $_POST['referral_physician']);
+    $referral_dentis = mysqli_real_escape_string($conn, $_POST['referral_dentis']);
+    $referral_other = mysqli_real_escape_string($conn, $_POST['referral_other']);
+    $referral_hospital = mysqli_real_escape_string($conn, $_POST['referral_hospital']);
+
+    $query = "INSERT INTO tb_monthly_data (mon_id,total_elem_vis,total_sec_vis,se_male,se_female,sp_teaching_male,sp_teaching_female,sp_non_teaching_male,sp_non_teaching_female,ha_noa_learners,ha_noa_teachers,ha_noa_ntp,ha_nhp_learners,ha_nhp_teachers,ha_nhp_ntp,ha_vs_learners,td_learners,td_teachers,td_ntp,npd_r1,npd_r2,npgis,npi_g1v,npi_g7v,npi_g4v,nca_learners,nca_teachers,referral_physician,referral_dentis,referral_other,referral_hospital) VALUES ('$mon_id','$total_elem_vis','$total_sec_vis','$se_male','$se_female','$sp_teaching_male','$sp_teaching_female','$sp_non_teaching_male','$sp_non_teaching_female','$ha_noa_learners','$ha_noa_teachers','$ha_noa_ntp','$ha_nhp_learners','$ha_nhp_teachers','$ha_nhp_ntp','$ha_vs_learners','$td_learners','$td_teachers','$td_ntp','$npd_r1','$npd_r2','$npgis','$npi_g1v','$npi_g7v','$npi_g4v','$nca_learners','$nca_teachers','$referral_physician','$referral_dentis','$referral_other','$referral_hospital')";
+    
+
+    $query_run = mysqli_query($conn, $query);
+    if($query_run)
+    {
+        $_SESSION['success_message'] = "Report Data Stored Successfully";
+        header("Location: ../user_monthly.php");
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['danger_message'] = "Report Data Not Stored";
+        header("Location: ../user_monthly.php");
+        exit(0);
+    }
+}
+
+
+//--------------------------------------------------------------------->
+//Update Monthly Data
+
+if(isset($_POST['edit_mon_data']))
+{
+    $data_id = mysqli_real_escape_string($conn, $_POST['data_id']);
+    $total_elem_vis = mysqli_real_escape_string($conn, $_POST['total_elem_vis']);
+    $total_sec_vis = mysqli_real_escape_string($conn, $_POST['total_sec_vis']);
+
+    $se_male = mysqli_real_escape_string($conn, $_POST['se_male']);
+    $se_female = mysqli_real_escape_string($conn, $_POST['se_female']);
+
+    $sp_teaching_male = mysqli_real_escape_string($conn, $_POST['sp_teaching_male']);
+    $sp_teaching_female = mysqli_real_escape_string($conn, $_POST['sp_teaching_female']);
+
+    $sp_non_teaching_male = mysqli_real_escape_string($conn, $_POST['sp_non_teaching_male']);
+    $sp_non_teaching_female = mysqli_real_escape_string($conn, $_POST['sp_non_teaching_female']);
+
+    $ha_noa_learners = mysqli_real_escape_string($conn, $_POST['ha_noa_learners']);
+    $ha_noa_teachers = mysqli_real_escape_string($conn, $_POST['ha_noa_teachers']);
+    $ha_noa_ntp = mysqli_real_escape_string($conn, $_POST['ha_noa_ntp']);
+
+    
+
+    $ha_nhp_learners = mysqli_real_escape_string($conn, $_POST['ha_nhp_learners']);
+    $ha_nhp_teachers = mysqli_real_escape_string($conn, $_POST['ha_nhp_teachers']);
+    $ha_nhp_ntp = mysqli_real_escape_string($conn, $_POST['ha_nhp_ntp']);
+
+    $ha_vs_learners = mysqli_real_escape_string($conn, $_POST['ha_vs_learners']);
+
+    $td_learners = mysqli_real_escape_string($conn, $_POST['td_learners']);
+    $td_teachers = mysqli_real_escape_string($conn, $_POST['td_teachers']);
+    $td_ntp = mysqli_real_escape_string($conn, $_POST['td_ntp']);
+
+    $npd_r1 = mysqli_real_escape_string($conn, $_POST['npd_r1']);
+    $npd_r2 = mysqli_real_escape_string($conn, $_POST['npd_r2']);
+
+    $npgis = mysqli_real_escape_string($conn, $_POST['npgis']);
+
+    $npi_g1v = mysqli_real_escape_string($conn, $_POST['npi_g1v']);
+    $npi_g7v = mysqli_real_escape_string($conn, $_POST['npi_g7v']);
+    $npi_g4v = mysqli_real_escape_string($conn, $_POST['npi_g4v']);
+
+    $nca_learners = mysqli_real_escape_string($conn, $_POST['nca_learners']);
+    $nca_teachers = mysqli_real_escape_string($conn, $_POST['nca_teachers']);
+
+    $referral_physician = mysqli_real_escape_string($conn, $_POST['referral_physician']);
+    $referral_dentis = mysqli_real_escape_string($conn, $_POST['referral_dentis']);
+    $referral_other = mysqli_real_escape_string($conn, $_POST['referral_other']);
+    $referral_hospital = mysqli_real_escape_string($conn, $_POST['referral_hospital']);
+
+    
+    $query = "UPDATE tb_monthly_data SET total_elem_vis='$total_elem_vis', total_sec_vis='$total_sec_vis', se_male='$se_male',se_female='$se_female', sp_teaching_male='$sp_teaching_male', sp_teaching_female='$sp_teaching_female',sp_non_teaching_male='$sp_non_teaching_male',sp_non_teaching_female='$sp_non_teaching_female',ha_noa_learners='$ha_noa_learners',ha_noa_teachers='$ha_noa_teachers',ha_noa_ntp='$ha_noa_ntp',ha_nhp_learners='$ha_nhp_learners',ha_nhp_teachers='$ha_nhp_teachers',ha_nhp_ntp='$ha_nhp_ntp',ha_vs_learners='$ha_vs_learners',td_learners='$td_learners',td_teachers='$td_teachers',td_ntp='$td_ntp',npd_r1='$npd_r1',npd_r2='$npd_r2',npgis='$npgis',npi_g1v='$npi_g1v',npi_g7v='$npi_g7v',npi_g4v='$npi_g4v',nca_learners='$nca_learners',nca_teachers='$nca_teachers',referral_physician='$referral_physician',referral_dentis='$referral_dentis',referral_other='$referral_other',referral_hospital='$referral_hospital' WHERE data_id='$data_id'";
+
+    $query_run = mysqli_query($conn, $query);
+    if($query_run)
+    {
+        $_SESSION['success_message'] = "Data Edited Successfully";
+        header("Location: ../user_monthly.php");
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['danger_message'] = "Data Not Edited";
+        header("Location: ../user_monthly.php");
+        exit(0);
+    }
+}
+
+
+
+
+
+
+
 ?>
+
+

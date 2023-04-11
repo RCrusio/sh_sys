@@ -2,72 +2,7 @@
 require 'php/config.php';
 include 'php/session.php';
 
-if(isset($_POST['add_mon_data']))
-{
-    //$rep_id = mysqli_real_escape_string($conn, $_POST['id']);
-    $mon_id = mysqli_real_escape_string($conn, $_POST['mon_id']);
-    $total_elem_vis = mysqli_real_escape_string($conn, $_POST['total_elem_vis']);
-    $total_sec_vis = mysqli_real_escape_string($conn, $_POST['total_sec_vis']);
 
-    $se_male = mysqli_real_escape_string($conn, $_POST['se_male']);
-    $se_female = mysqli_real_escape_string($conn, $_POST['se_female']);
-
-    $sp_teaching_male = mysqli_real_escape_string($conn, $_POST['sp_teaching_male']);
-    $sp_teaching_female = mysqli_real_escape_string($conn, $_POST['sp_teaching_female']);
-
-    $sp_non_teaching_male = mysqli_real_escape_string($conn, $_POST['sp_non_teaching_male']);
-    $sp_non_teaching_female = mysqli_real_escape_string($conn, $_POST['sp_non_teaching_female']);
-
-    $ha_noa_learners = mysqli_real_escape_string($conn, $_POST['ha_noa_learners']);
-    $ha_noa_teachers = mysqli_real_escape_string($conn, $_POST['ha_noa_teachers']);
-    $ha_noa_ntp = mysqli_real_escape_string($conn, $_POST['ha_noa_ntp']);
-
-    
-
-    $ha_nhp_learners = mysqli_real_escape_string($conn, $_POST['ha_nhp_learners']);
-    $ha_nhp_teachers = mysqli_real_escape_string($conn, $_POST['ha_nhp_teachers']);
-    $ha_nhp_ntp = mysqli_real_escape_string($conn, $_POST['ha_nhp_ntp']);
-
-    $ha_vs_learners = mysqli_real_escape_string($conn, $_POST['ha_vs_learners']);
-
-    $td_learners = mysqli_real_escape_string($conn, $_POST['td_learners']);
-    $td_teachers = mysqli_real_escape_string($conn, $_POST['td_teachers']);
-    $td_ntp = mysqli_real_escape_string($conn, $_POST['td_ntp']);
-
-    $npd_r1 = mysqli_real_escape_string($conn, $_POST['npd_r1']);
-    $npd_r2 = mysqli_real_escape_string($conn, $_POST['npd_r2']);
-
-    $npgis = mysqli_real_escape_string($conn, $_POST['npgis']);
-
-    $npi_g1v = mysqli_real_escape_string($conn, $_POST['npi_g1v']);
-    $npi_g7v = mysqli_real_escape_string($conn, $_POST['npi_g7v']);
-    $npi_g4v = mysqli_real_escape_string($conn, $_POST['npi_g4v']);
-
-    $nca_learners = mysqli_real_escape_string($conn, $_POST['nca_learners']);
-    $nca_teachers = mysqli_real_escape_string($conn, $_POST['nca_teachers']);
-
-    $referral_physician = mysqli_real_escape_string($conn, $_POST['referral_physician']);
-    $referral_dentis = mysqli_real_escape_string($conn, $_POST['referral_dentis']);
-    $referral_other = mysqli_real_escape_string($conn, $_POST['referral_other']);
-    $referral_hospital = mysqli_real_escape_string($conn, $_POST['referral_hospital']);
-
-    $query = "INSERT INTO tb_monthly_data (mon_id,total_elem_vis,total_sec_vis,se_male,se_female,sp_teaching_male,sp_teaching_female,sp_non_teaching_male,sp_non_teaching_female,ha_noa_learners,ha_noa_teachers,ha_noa_ntp,ha_nhp_learners,ha_nhp_teachers,ha_nhp_ntp,ha_vs_learners,td_learners,td_teachers,td_ntp,npd_r1,npd_r2,npgis,npi_g1v,npi_g7v,npi_g4v,nca_learners,nca_teachers,referral_physician,referral_dentis,referral_other,referral_hospital) VALUES ('$mon_id','$total_elem_vis','$total_sec_vis','$se_male','$se_female','$sp_teaching_male','$sp_teaching_female','$sp_non_teaching_male','$sp_non_teaching_female','$ha_noa_learners','$ha_noa_teachers','$ha_noa_ntp','$ha_nhp_learners','$ha_nhp_teachers','$ha_nhp_ntp','$ha_vs_learners','$td_learners','$td_teachers','$td_ntp','$npd_r1','$npd_r2','$npgis','$npi_g1v','$npi_g7v','$npi_g4v','$nca_learners','$nca_teachers','$referral_physician','$referral_dentis','$referral_other','$referral_hospital')";
-    
-
-    $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
-        $_SESSION['success_message'] = "Report Data Stored Successfully";
-        header("Location: ../user_monthly.php");
-        exit(0);
-    }
-    else
-    {
-        $_SESSION['danger_message'] = "Report Data Not Stored";
-        header("Location: ../user_monthly.php");
-        exit(0);
-    }
-}
 
 
 ?>
@@ -98,7 +33,7 @@ if(isset($_POST['add_mon_data']))
       <div class="container_form">   
 
               <div class="row d-flex justify-content-center align-items-center h-100 mb-5">
-                <div class="col-xl-9">
+                <div class="col-xl-11">
                 <?php
                 if(isset($_GET['id'])) 
                 {
@@ -112,19 +47,20 @@ if(isset($_POST['add_mon_data']))
               ?>
                 
                   <h1>Add <?= $row['mon_title']; ?> Data</h1>
-                <form action="" method="post">
+                
                   <div class="card" style="border-radius: 15px;">
                     <div class="card-body">
                          <div class="row mb-4 md-3">
             <div class="hstack gap-4">
-            
+                  <form action="php/code2.php" method="post">
+                  <input type="hidden" name="mon_id"  value="<?= $row['mon_id']; ?>" class="form_control no" >
            
  
              </div>
              
           </div> 
                    
-              <input type="" name="mon_id"  value="<?= $row['mon_id']; ?>" class="form_control no" >
+              
              
             </div>  
             <div class="row text-center mb-2">
@@ -133,7 +69,7 @@ if(isset($_POST['add_mon_data']))
 
                       <div class="row align-items-center py-3">
                         <div class="col ps-5">
-
+                        
                           <h5 class="mb-2">Total No. of Elem. Schools Visited</h5>
                           <input type="number" name="total_elem_vis" class="form-control form-control-lg" value=""  />
 
@@ -164,11 +100,9 @@ if(isset($_POST['add_mon_data']))
 
                       <hr class="mx-n3">
 
-                      <div class="px-5 py-4 ms-auto">
-                        <a href="user_sdhcp.php" type="button" class="btn btn-secondary btn-lg">Go Back</a>
-
+                      <div class="px-5 py-4 ms-auto"> 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Report</button>
+                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Data</button>
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -188,7 +122,7 @@ if(isset($_POST['add_mon_data']))
                             </div>
                           </div>
                         </div>
-
+                        </form>
                       </div>
 
                       <?php
@@ -196,7 +130,7 @@ if(isset($_POST['add_mon_data']))
         
         }
         ?>
-                    </form>
+                    
                     </div>
                   </div>
 

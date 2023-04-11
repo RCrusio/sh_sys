@@ -81,7 +81,7 @@ include 'php/session.php';
                             <td>
                             
                             <div class="action_container">
-                                <a href="try.php?id=<?= $row['mon_id']; ?>" class="btn btn-secondary" role="button" style="margin-right:3px">
+                                <a href="user_monthly_data.php?id=<?= $row['mon_id']; ?>" class="btn btn-secondary" role="button" style="margin-right:3px">
                                 View
                                 </a>
 

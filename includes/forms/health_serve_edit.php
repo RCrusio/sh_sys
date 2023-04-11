@@ -8,27 +8,27 @@
                     </div>
 
                       <div class="row ps-4 mt-2">
-                         <h5>1. Teaching</h5>
+                         <h5>1. Teaching</h5> 
                       </div>
 
                       <div class="row align-items-center py-2 mb-3">
                         <div class="col ps-5">
 
                           <h5 class="mb-2"><span class="badge bg-secondary">Learners:</span></h5>
-                          <input type="number" name="ha_noa_learners" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="ha_noa_learners" class="form-control form-control-lg" value="<?= $row['ha_noa_learners']; ?>"  />
 
                         </div>
 
                         <div class="col ">
 
                         <h5 class="mb-2"><span class="badge bg-secondary">Teachers:</span></h5>
-                          <input type="number" name="ha_noa_teachers" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="ha_noa_teachers" class="form-control form-control-lg" value="<?= $row['ha_noa_teachers']; ?>"  />
 
                         </div>
 
                         <div class="col pe-5">
                         <h5 class="mb-2"><span class="badge bg-secondary">NTP:</span></h5>
-                          <input type="number" name="ha_noa_ntp" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="ha_noa_ntp" class="form-control form-control-lg" value="<?= $row['ha_noa_ntp']; ?>"  />
 
                         </div>
                       </div>
@@ -42,20 +42,20 @@
                         <div class="col ps-5">
 
                           <h5 class="mb-2"><span class="badge bg-secondary">Learners:</span></h5>
-                          <input type="number" name="ha_nhp_learners" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="ha_nhp_learners" class="form-control form-control-lg" value="<?= $row['ha_nhp_learners']; ?>"  />
 
                         </div>
 
                         <div class="col ">
 
                         <h5 class="mb-2"><span class="badge bg-secondary">Teachers:</span></h5>
-                          <input type="number" name="ha_nhp_teachers" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="ha_nhp_teachers" class="form-control form-control-lg" value="<?= $row['ha_nhp_teachers']; ?>"  />
 
                         </div>
 
                         <div class="col pe-5">
                         <h5 class="mb-2"><span class="badge bg-secondary">NTP:</span></h5>
-                          <input type="number" name="ha_nhp_ntp" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="ha_nhp_ntp" class="form-control form-control-lg" value="<?= $row['ha_nhp_ntp']; ?>"  />
 
                         </div>
                       </div>
@@ -68,7 +68,7 @@
 
                         <div class="col ps-5">
                         
-                          <input style="width:30.5%" type="number" name="ha_vs_learners" class="form-control form-control-lg" value=""  />
+                          <input style="width:30.5%" type="number" name="ha_vs_learners" class="form-control form-control-lg" value="<?= $row['ha_vs_learners']; ?>"  />
 
                         </div>
                       </div>
@@ -83,20 +83,20 @@
                         <div class="col ps-5">
 
                           <h5 class="mb-2"><span class="badge bg-secondary">Learners:</span></h5>
-                          <input type="number" name="td_learners" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="td_learners" class="form-control form-control-lg" value="<?= $row['td_learners']; ?>"  />
 
                         </div>
 
                         <div class="col ">
 
                         <h5 class="mb-2"><span class="badge bg-secondary">Teachers:</span></h5>
-                          <input type="number" name="td_teachers" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="td_teachers" class="form-control form-control-lg" value="<?= $row['td_teachers']; ?>"  />
 
                         </div>
 
                         <div class="col pe-5">
                         <h5 class="mb-2"><span class="badge bg-secondary">NTP:</span></h5>
-                          <input type="number" name="td_ntp" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="td_ntp" class="form-control form-control-lg" value="<?= $row['td_ntp']; ?>"  />
 
                         </div>
                       </div>
@@ -110,14 +110,14 @@
                         <div class="col ps-5">
 
                           <h5 class="mb-2"><span class="badge bg-secondary">1st Round:</span></h5>
-                          <input type="number" name="npd_r1" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="npd_r1" class="form-control form-control-lg" value="<?= $row['npd_r1']; ?>"  />
 
                         </div>
 
                         <div class="col ">
 
                         <h5 class="mb-2"><span class="badge bg-secondary">2nd Round:</span></h5>
-                          <input type="number" name="npd_r2" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="npd_r2" class="form-control form-control-lg" value="<?= $row['npd_r2']; ?>"  />
 
                         </div>
 
@@ -133,7 +133,7 @@
 
                         <div class="col ps-5 mb-3">
                         
-                          <input style="width:30.5%" type="number" name="npgis" class="form-control form-control-lg" value=""  />
+                          <input style="width:30.5%" type="number" name="npgis" class="form-control form-control-lg" value="<?= $row['npgis']; ?>"  />
 
                         </div>
                       </div>
@@ -148,20 +148,20 @@
                         <div class="col ps-5">
 
                           <h5 class="mb-2"><span class="badge bg-secondary">Grade 1 MR/TD Vaccine</span></h5>
-                          <input type="number" name="npi_g1v" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="npi_g1v" class="form-control form-control-lg" value="<?= $row['npi_g1v']; ?>"  />
 
                         </div>
 
                         <div class="col ">
 
                         <h5 class="mb-2"><span class="badge bg-secondary">Grade 7 MR/TD Vaccine</span></h5>
-                          <input type="number" name="npi_g7v" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="npi_g7v" class="form-control form-control-lg" value="<?= $row['npi_g7v']; ?>"  />
 
                         </div>
 
                         <div class="col pe-5">
                         <h5 class="mb-2"><span class="badge bg-secondary">Grade 4 HPV (Female)</span></h5>
-                          <input type="number" name="npi_g4v" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="npi_g4v" class="form-control form-control-lg" value="<?= $row['npi_g4v']; ?>"  />
 
                         </div>
                       </div>
@@ -177,14 +177,14 @@
                         <div class="col ps-5">
 
                           <h5 class="mb-2"><span class="badge bg-secondary">Learners:</span></h5>
-                          <input type="number" name="nca_learners" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="nca_learners" class="form-control form-control-lg" value="<?= $row['nca_learners']; ?>"  />
 
                         </div>
 
                         <div class="col ">
 
                         <h5 class="mb-2"><span class="badge bg-secondary">Teachers</span></h5>
-                          <input type="number" name="nca_teachers" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="nca_teachers" class="form-control form-control-lg" value="<?= $row['nca_teachers']; ?>"  />
 
                         </div>
 
@@ -201,26 +201,26 @@
                       <div class="row align-items-center py-2 ">
                         <div class="col ps-5">
                           <h5 class="mb-2"><span class="badge bg-secondary">Physician</span></h5>
-                          <input type="number" name="referral_physician" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="referral_physician" class="form-control form-control-lg" value="<?= $row['referral_physician']; ?>"  />
 
                         </div>
 
                         <div class="col ">
                         <h5 class="mb-2">
                           <span class="badge bg-secondary">Dentist</span></h5>
-                          <input type="number" name="referral_dentis" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="referral_dentis" class="form-control form-control-lg" value="<?= $row['referral_dentis']; ?>"  />
 
                         </div>
 
                         <div class="col">
                         <h5 class="mb-2"><span class="badge bg-secondary">Other facilities</span></h5>
-                          <input type="number" name="referral_other" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="referral_other" class="form-control form-control-lg" value="<?= $row['referral_other']; ?>"  />
 
                         </div>
 
                         <div class="col pe-5" style="margin-top: -16px;">
                         <h5 class="mb-2"><span class="badge bg-secondary">RHU/ District/<br> Provincial Hospital</span></h5>
-                          <input type="number" name="referral_hospital" class="form-control form-control-lg" value=""  />
+                          <input type="number" name="referral_hospital" class="form-control form-control-lg" value="<?= $row['referral_hospital']; ?>"  />
 
                         </div>
                       </div>

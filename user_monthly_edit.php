@@ -33,7 +33,7 @@ include 'php/session.php';
 
                   <h1>Update Monthly Report</h1>
                 
-                  <div class="card" style="border-radius: 15px;">
+                  <div class="card mb-4" style="border-radius: 15px;">
                     <div class="card-body">
 
                 <?php
@@ -112,7 +112,7 @@ include 'php/session.php';
                       <hr class="mx-n3">
 
                       <div class="px-5 py-4">
-                        <a href="user_sdhcp.php" type="button" class="btn btn-secondary btn-lg">Go Back</a>
+                        <a href="user_monthly.php" type="button" class="btn btn-secondary btn-lg">Go Back</a>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Update Report</button>
