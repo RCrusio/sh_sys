@@ -46,7 +46,7 @@ include 'php/session.php';
                         $row = mysqli_fetch_array($query_run);
               ?>
                 
-                  <h1>Add <?= $row['mon_title']; ?> Data</h1>
+                  <h1>Add "<?= $row['mon_title']; ?>" Data</h1>
                 
                   <div class="card" style="border-radius: 15px;">
                     <div class="card-body">
