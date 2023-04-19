@@ -39,7 +39,7 @@ include 'php/session.php';
                         $row = mysqli_fetch_array($query_run);
               ?>
 
-            <h1 style="margin-left:3%" class="mb-3"><a href="user_monthly.php"><i class='bx bx-left-arrow-alt'></i></a>SDHCP Data <?= $row['mon_title']; ?></h1>
+            <h1 style="margin-left:3%" class="mb-3"><a href="user_monthly.php"><i class='bx bx-left-arrow-alt'></i></a>"<?= $row['mon_title']; ?>"</h1>
               <div class="row d-flex justify-content-center align-items-center h-100 mb-5">
                 <div class="col-xl-11">
 
@@ -58,7 +58,7 @@ include 'php/session.php';
                <input type="hidden" name="mon_id"  value="<?= $row['mon_id']; ?>" class="form_control no" >
 
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#exampleModal">
               Clear Data
               </button>
 
@@ -82,9 +82,7 @@ include 'php/session.php';
               </div>
               </form>
 
-              <a class="btn btn-primary me-auto" id="add"  role="button" href="user_monthly_data_add.php?id=<?= $row['mon_id']; ?>">
-                       Add Data
-                    </a>
+              
 
                     <?php
         }
@@ -104,7 +102,7 @@ include 'php/session.php';
                  {
          ?>
 
-              <a class="btn btn-primary " role="button" href="user_monthly_data_edit.php?id=<?= $row['data_id']; ?>">
+              <a class="btn btn-primary ms-auto" role="button" href="user_monthly_data_edit.php?id=<?= $row['data_id']; ?>">
                        Edit Data
               </a>
               
@@ -188,8 +186,12 @@ include 'php/session.php';
                         }
                         else
                         {
-                            echo "<h5 class='ms-4 mb-5'> No Data added yet </h5>";
-                        }
+                          ?>
+                          <a class='btn btn-primary me-auto' id='add'  role='button' href='user_monthly_data_add.php?id=<?= $row['mon_id']; ?>'> Add Data</a>
+                           <h5 class='ms-4 mb-5 text-center'> No Data added yet </h5>
+                           
+                        <?php
+                          }
                     ?>
                         </div>
                         

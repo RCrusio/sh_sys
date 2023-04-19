@@ -19,8 +19,9 @@ if(isset($_POST['acc_update']))
     $query_run = mysqli_query($conn, $query);
     if($query_run)
     {
-        
-        header("Location: logout.php");
+        $_SESSION['success_message'] = "Successfuly changed the password";
+        header("Location: ../user_account.php");
+
     }
 }
 }
