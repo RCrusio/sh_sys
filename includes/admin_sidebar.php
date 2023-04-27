@@ -2,43 +2,40 @@
 <div class="sidebar">
     <div class="logo-details">
       <img src="assets/img/deped.png" style="width: 80px;" alt="">
-      <span class="logo_name">SGOD</span>
+      <span class="logo_name">School Health</span>
     </div>
     <ul class="nav-links">
-      <li>
-      
+
+    <li>
+        <a href="admin_dash.php">
+        <i class='bx bxs-dashboard'></i>
+          <span class="link_name">Home</span>
+        </a>  
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="admin_dash.php">Home</a></li>
+        </ul>
+      </li>
 
       <li>
-        <a href="admin_loc_rep.php">
-        <i class='bx bxs-tree'></i>
-          <span class="link_name">Tree Locator Report</span>
+        <a href="admin_sdhcp.php">
+        <i class='bx bx-history'></i>
+          <span class="link_name">SDHCP Report</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="admin_loc_rep.php">Tree Locator Report</a></li>
+          <li><a class="link_name" href="admin_sdhcp.php">SDHCP Report</a></li>
         </ul>
       </li>
-      <li>
 
       <li>
-        <a href="admin_inv_rep.php">
-        <i class='bx bxs-collection'></i>
-          <span class="link_name">Tree Inventory Report</span>
+        <a href="admin_monthly.php">
+        <i class='bx bxs-calendar'></i>
+          <span class="link_name">Monthly Report</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="admin_inv_rep.php">Tree Inventory Report</a></li>
+          <li><a class="link_name" href="admin_monthly.php">Monthly Report</a></li>
         </ul>
       </li>
-      <li>
-      <li>
-        <a href="try_table.php">
-          <i class='bx bx-cog' ></i>
-          <span class="link_name">try</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="try_table.php">Account</a></li>
-        </ul>
-      </li>
-      <li>
+
       <li>
         <a href="user_account.php">
           <i class='bx bx-cog' ></i>
@@ -54,7 +51,8 @@
         
       </div>
       <div class="name-job">
-        <div class="profile_name">Admin</div>
+        <div class="profile_name"><?php echo $_SESSION["admin_name"]; ?></div>
+        <div class="job"><?php echo  $_SESSION["admin_status"]; ?></div>
       </div>
       <a href="php/logout.php">
         <i class='bx bx-log-out'></i></a>

@@ -18,8 +18,9 @@ if(isset($_POST["submit"])){
    if($password == $row['password']){
       if($row['type'] == 'admin'){
         $_SESSION["login"] = true;
-        $_SESSION['admin_name'] = $row['id'];
-        header('location:admin_loc_rep.php');
+        $_SESSION['admin_name'] = $row['name'];
+        $_SESSION['admin_status'] = $row['type'];
+        header('location:admin_dash.php');
       }
       else{
       $_SESSION["login"] = true;

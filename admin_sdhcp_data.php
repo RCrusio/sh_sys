@@ -1,6 +1,6 @@
 <?php
 require 'php/config.php';
-include 'php/session.php';
+include 'php/admin_session.php';
 
 ?>
 
@@ -27,7 +27,7 @@ include 'php/session.php';
 
 <body>
 
-  <?php include 'includes/user_sidebar.php'; ?>
+  <?php include 'includes/admin_sidebar.php'; ?>
   <section class="home-section">
     <div class="container_form">
       <?php
@@ -39,7 +39,7 @@ include 'php/session.php';
         if (mysqli_num_rows($query_run) > 0) {
           $row = mysqli_fetch_array($query_run);
       ?>
-          <H1><a href="user_sdhcp.php"><i class='bx bx-left-arrow-alt'></i></a>SDHCP Data "<?= $row['rep_title']; ?>" </H1>
+          <H1><a href="admin_sdhcp.php"><i class='bx bx-left-arrow-alt'></i></a>SDHCP Data <strong>"<?= $row['rep_title']; ?>"</strong></H1>
 
           <div class="container">
             <?php include 'php/message.php'; ?>
@@ -52,36 +52,6 @@ include 'php/session.php';
                     <i class='bx bx-search-alt'></i>
                   </span>
                 </div>
-
-                <form action="php/code.php" method="post">
-                  <input type="hidden" name="rep_id" value="<?= $row['rep_id']; ?>">
-
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Clear Data
-                  </button>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">Clear Data</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          Are you sure you want to clear <strong>"<?= $row['rep_title']; ?>" </strong> data?
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="submit" name="clear" class="btn btn-danger">Clear Data</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-
-
 
                 <form action="php/export.php" method="post">
                   <input type="hidden" name="rep_id" value="<?= $row['rep_id']; ?>">
@@ -112,9 +82,7 @@ include 'php/session.php';
               <th colspan="2">Services Delivered</th>
               <th rowspan="2">Referal</th>
               <th rowspan="2">Subtotal</th>
-              <th rowspan="2" width="50px">
-                Edit Data
-              </th>
+             
 
             <tr>
               <th>Online</th>
@@ -146,18 +114,6 @@ include 'php/session.php';
                   <td><?php echo $row['treatment']; ?></td>
                   <td><?php echo $row['referal']; ?></td>
                   <td><?php echo $row['subtotal']; ?></td>
-
-                  <td>
-
-                    <div class="action_container">
-
-                      <a href="user_sdhcp_edit_data.php?id=<?= $row['data_id']; ?>" class="btn btn-primary" role="button" style="margin-right:3px">
-                        Edit
-                      </a>
-
-                    </div>
-                  </td>
-
                 </tr>
 
               <?php
@@ -240,7 +196,7 @@ include 'php/session.php';
                 <?php
                 }
                 ?>
-                <td></td>
+
               </tr>
 
 
