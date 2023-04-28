@@ -31,7 +31,7 @@ include 'php/session.php';
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-9">
 
-                  <h1>Update SDHCP Report</h1>
+                  <h1><a href="user_sdhcp.php"><i class='bx bx-left-arrow-alt'></i></a>Update SDHCP Report</h1>
                 
                   <div class="card mb-4" style="border-radius: 15px;">
                     <div class="card-body">
@@ -77,7 +77,7 @@ include 'php/session.php';
                     {
                         $row = mysqli_fetch_array($query_run);
                   ?>
-                  <form action="php/code.php" method="post">
+                  <form action="php/user_code.php" method="post">
                       <hr class="mx-n3">
                       <input type="hidden" name="rep_id" value="<?= $row['rep_id']; ?>">
                     <div class="row align-items-center py-3">

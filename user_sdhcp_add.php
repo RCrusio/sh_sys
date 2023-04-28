@@ -31,8 +31,8 @@ include 'php/session.php';
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-9">
 
-                  <h1>Add SDHCP Report</h1>
-                <form action="php/code.php" method="post">
+                <h1><a href="user_sdhcp.php"><i class='bx bx-left-arrow-alt'></i></a>Add SDHCP Report</h1>
+                <form action="php/user_code.php" method="post">
                   <div class="card" style="border-radius: 15px;">
                     <div class="card-body">
 

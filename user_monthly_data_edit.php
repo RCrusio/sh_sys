@@ -37,7 +37,7 @@ include 'php/session.php';
 
                 
                 
-                <form action="php/code2.php" method="post">
+                <form action="php/user_code2.php" method="post">
                   <div class="card" style="border-radius: 15px;">
                     <div class="card-body">
 

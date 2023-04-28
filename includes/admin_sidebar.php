@@ -37,12 +37,12 @@
       </li>
 
       <li>
-        <a href="user_account.php">
+        <a href="admin_accounts.php">
           <i class='bx bx-cog' ></i>
-          <span class="link_name">Account</span>
+          <span class="link_name">Accounts</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="user_account.php">Account</a></li>
+          <li><a class="link_name" href="admin_accounts.php">Accounts</a></li>
         </ul>
       </li>
       <li>

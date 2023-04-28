@@ -77,7 +77,7 @@ include 'php/session.php';
                     {
                         $row = mysqli_fetch_array($query_run);
                   ?>
-                  <form action="php/code2.php" method="post">
+                  <form action="php/user_code2.php" method="post">
                       <hr class="mx-n3">
                       <input type="hidden" name="mon_id" value="<?= $row['mon_id']; ?>">
                     <div class="row align-items-center py-3">

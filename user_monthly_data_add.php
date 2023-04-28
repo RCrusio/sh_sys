@@ -52,7 +52,7 @@ include 'php/session.php';
                     <div class="card-body">
                          <div class="row mb-4 md-3">
             <div class="hstack gap-4">
-                  <form action="php/code2.php" method="post">
+                  <form action="php/user_code2.php" method="post">
                   <input type="hidden" name="mon_id"  value="<?= $row['mon_id']; ?>" class="form_control no" >
            
  

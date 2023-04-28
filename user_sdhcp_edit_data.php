@@ -47,7 +47,7 @@ include 'php/session.php';
 
                         
                      
-                  <form action="php/code.php" method="post">
+                  <form action="php/user_code.php" method="post">
                   <div class="row align-items-center py-3">
                         <div class="col-md-3 ps-5">
                         <input type="hidden" name="data_id" value="<?= $row['data_id']; ?>">

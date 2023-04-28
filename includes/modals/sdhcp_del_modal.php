@@ -5,7 +5,7 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Report</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <form action="php/code.php" method="POST">
+                  <form action="php/user_code.php" method="POST">
                   <div class="modal-body">
                   <input type="hidden" name="delete_data" id="delete_data">
                   <h4> Do you want to Delete <strong>"<?= $row['rep_title']; ?>" </strong> Report?</h4>

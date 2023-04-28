@@ -39,7 +39,7 @@ include 'php/admin_session.php';
                         $row = mysqli_fetch_array($query_run);
               ?>
 
-            <h1 style="margin-left:3%" class="mb-3"><a href="monthly_monthly.php"><i class='bx bx-left-arrow-alt'></i></a>"<?= $row['mon_title']; ?>"</h1>
+            <h1 style="margin-left:3%" class="mb-3"><a href="admin_monthly.php"><i class='bx bx-left-arrow-alt'></i></a>"<?= $row['mon_title']; ?>"</h1>
               <div class="row d-flex justify-content-center align-items-center h-100 mb-5">
                 <div class="col-xl-11">
 

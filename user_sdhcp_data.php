@@ -53,7 +53,7 @@ include 'php/session.php';
                   </span>
                 </div>
 
-                <form action="php/code.php" method="post">
+                <form action="php/user_code.php" method="post">
                   <input type="hidden" name="rep_id" value="<?= $row['rep_id']; ?>">
 
                   <!-- Button trigger modal -->

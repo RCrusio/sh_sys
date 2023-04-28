@@ -1,6 +1,6 @@
 <?php
 require 'php/config.php';
-include 'php/session.php';
+include 'php/admin_session.php';
 ?>
 
 
@@ -24,78 +24,95 @@ include 'php/session.php';
   </head>
   <body>
 
-  <?php include 'includes/user_sidebar.php';?>
+  <?php include 'includes/admin_sidebar.php';?>
   <section class="home-section">
       <div class="container_form">   
 
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-9">
 
-                  <h1>Add Monthly Report</h1>
-                <form action="php/user_code2.php" method="post">
+                <h1><a href="admin_accounts.php"><i class='bx bx-left-arrow-alt'></i></a>Add User Account</h1>
+                <form action="php/admin_code.php" method="post">
                   <div class="card" style="border-radius: 15px;">
                     <div class="card-body">
 
-                <?php
-              
-                    $id = mysqli_real_escape_string($conn, $_SESSION['id']);
-                    $query = "SELECT * FROM tb_user WHERE id='$id' ";
-                    $query_run = mysqli_query($conn, $query);
-
-                    if(mysqli_num_rows($query_run) > 0)
-                    {
-                        $row = mysqli_fetch_array($query_run);
-                  ?>
-                  
-              <input type="hidden" name="user_id"  value="<?= $row['id']; ?>" class="form_control no" >
              
             </div>  
 
                       <div class="row align-items-center py-3">
                         <div class="col-md-3 ps-5">
 
-                          <h6 class="mb-0">Nurse</h6>
+                          <h6 class="mb-0">Name<span style="color:red">*</span></h6>
 
                         </div>
                         <div class="col-md-9 pe-5">
 
-                        <input type="text" name="user_name" class="form-control form-control-lg" value="<?= $row['name']; ?>" readonly />
+                        <input type="text" name="user_name" class="form-control form-control-lg" value="" required/>
 
                         </div>
                       </div>
-                      <?php
-                  }
-                ?>
-                      
+    
                       <hr class="mx-n3">
 
                     <div class="row align-items-center py-3">
                         <div class="col-md-3 ps-5">
 
-                          <h6 class="mb-0">Title Report</h6>
+                          <h6 class="mb-0">Email <span style="color:red">*</span></h6>
 
                         </div>
                         <div class="col-md-9 pe-5">
 
-                          <textarea class="form-control" name="mon_title" rows="3" placeholder="Input Report Title....."></textarea>
+                        <input type="text" name="user_email" class="form-control form-control-lg" value="" required/>
+                        </div>
+                      </div>
+
+                      <hr class="mx-n3">
+
+                    <div class="row align-items-center py-3">
+                        <div class="col-md-3 ps-5">
+
+                          <h6 class="mb-0">Password<span style="color:red">*</span></h6>
+
+                        </div>
+                        <div class="col-md-9 pe-5">
+
+                        <input type="text" name="user_pass" class="form-control form-control-lg" value="" required/>
                         </div>
                       </div>
 
                     <hr class="mx-n3">
 
+                      <div class="row align-items-center pt-4 pb-3">
+                        <div class="col ps-5">
 
+                          <h6 class="mb-1">Status<span style="color:red">*</span></h6>
+                          <select class="form-select form-select-lg " name="status" aria-label="Default select example" required>
+                              <option selected>Select Status</option>
+                              <option value="Nurse 1">Nurse 1</option>
+                              <option value="Nurse 2">Nurse 2</option>
+                              <option value="Nurse 3">Nurse 3</option>
+                              <option value="Nurse 4">Nurse 4</option>
+                              <option value="Nurse 5">Nurse 5</option>
+                              <option value="Nurse 6">Nurse 6</option>
+                              <option value="Nurse 7">Nurse 7</option>
 
-                      <div class="row align-items-center py-3">
-                        <div class="col-md-3 ps-5">
-
-                          <h6 class="mb-0">Date<span style="color:red">*</span></h6>
-
+                          </select>
                         </div>
-                        <div class="col-md-9 pe-5">
+                        
+ 
 
-                        <input type="month" name="mon_date" class="form-control form-control-lg" />
+                        <div class="col pe-5 ps-2">
 
+                          <h6 class="mb-1">User Type<span style="color:red">*</span></h6>
+                          <select class="form-select form-select-lg " name="type" aria-label="Default select example" required>
+                              <option selected>Select User Type</option>
+                              <option value="User">User</option>
+                              <option value="Admin">Admin</option>
+                            
+                          </select>
                         </div>
+ 
+                        
                       </div>
 
                    
@@ -103,25 +120,25 @@ include 'php/session.php';
                       <hr class="mx-n3">
 
                       <div class="px-5 py-4">
-                        <a href="user_monthly.php" type="button" class="btn btn-secondary btn-lg">Go Back</a>
+                        <a href="admin_accounts.php" type="button" class="btn btn-secondary btn-lg">Go Back</a>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Report</button>
+                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Account</button>
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Report</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Account</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                Are you sure you want to add a report?
+                                Are you sure you want to add an Account?
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="add_mon" class="btn btn-primary">Add</button>
+                                <button type="submit" name="add_user" class="btn btn-primary">Add</button>
                               </div>
                             </div>
                           </div>

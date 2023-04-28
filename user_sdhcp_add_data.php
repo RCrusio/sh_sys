@@ -43,7 +43,7 @@ include 'php/session.php';
               ?>
 
           <H1>SDHCP Report <?= $row['rep_id']; ?> Data</H1>
-          <form action="php/code.php" method="post" >
+          <form action="php/user_code.php" method="post" >
           <div class="container">
             <div class="row top-tab">
            

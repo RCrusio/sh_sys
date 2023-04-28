@@ -36,16 +36,7 @@
         </ul>
       </li>
       
-
-      <li>
-        <a href="try.php">
-          <i class='bx bx-history'></i>
-          <span class="link_name">try</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="try.php">try</a></li>
-        </ul>
-      </li>
+  
       <li>
         <a href="user_account.php">
           <i class='bx bx-cog' ></i>

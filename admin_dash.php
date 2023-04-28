@@ -34,21 +34,21 @@ include 'php/admin_session.php';
       <div class="row">
         <div class="col-5">
           <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="admin_monthly.php" type="button" class="btn btn-primary">Monthly Report</a>
+              <h5 class="card-title">SDHCP Reports</h5> 
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto placeat quae ab alias consectetur, neque esse adipisci doloremque!</p>
+              <a href="admin_sdhcp.php" type="button" class="btn btn-primary">SDHCP Report</a>
             </div>
           </div>
         </div>
 
         <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
+
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Monthly Achievement Reports</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="admin_sdhcp.php" type="button" class="btn btn-primary">SDHCP Report</a>
+            <a href="admin_monthly.php" type="button" class="btn btn-primary">Monthly Report</a>
           </div>
         </div>
       </div>

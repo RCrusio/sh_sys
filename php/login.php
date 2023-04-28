@@ -16,7 +16,7 @@ if(isset($_POST["submit"])){
     
   
    if($password == $row['password']){
-      if($row['type'] == 'admin'){
+      if($row['type'] == 'Admin'){
         $_SESSION["login"] = true;
         $_SESSION['admin_name'] = $row['name'];
         $_SESSION['admin_status'] = $row['type'];

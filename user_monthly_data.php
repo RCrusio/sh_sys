@@ -54,7 +54,7 @@ include 'php/session.php';
             
           
             
-              <form action="php/code2.php" method="post">
+              <form action="php/user_code2.php" method="post">
                <input type="hidden" name="mon_id"  value="<?= $row['mon_id']; ?>" class="form_control no" >
 
               <!-- Button trigger modal -->
